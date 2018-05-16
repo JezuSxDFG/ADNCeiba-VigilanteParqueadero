@@ -15,6 +15,7 @@ Consiste en un sistema que simula el comportamiento del vigilante de un parquead
 
 ### Tarifas
 La tabla de precios es la siguiente:
+
 | CONCEPTO | VALOR |
 | ------ | ------ |
 | Carro x hora | 1000 |
