@@ -1,3 +1,4 @@
+package dominio;
 
 
 import org.springframework.boot.SpringApplication;

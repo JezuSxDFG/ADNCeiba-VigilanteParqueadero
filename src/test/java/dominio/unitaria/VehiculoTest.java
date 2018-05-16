@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import databuilder.VehiculoBuilder;
+import static databuilder.VehiculoBuilder.unVehiculo;
 import dominio.Vehiculo;
 
 public class VehiculoTest {
@@ -16,14 +16,12 @@ public class VehiculoTest {
 	
 	@Test
 	public void crearCarroTest() {
-		//Arrange
-		VehiculoBuilder CarroBuilder = new VehiculoBuilder().
-				conPlaca(PLACA).
-				conTipo(TIPO_CARRO).
-				conCilindraje(CILINDRAJE);
-				
-		//Act
-		Vehiculo carro = CarroBuilder.build();
+		//Arrange y Act
+		Vehiculo carro = unVehiculo()
+				.conPlaca(PLACA)
+				.conTipo(TIPO_CARRO)
+				.conCilindraje(CILINDRAJE)
+				.build();
 		
 		//Assert
 		assertEquals(PLACA, carro.getPlaca());
@@ -33,14 +31,12 @@ public class VehiculoTest {
 	
 	@Test
 	public void crearMotoTest() {
-		//Arrange
-		VehiculoBuilder MotoBuilder = new VehiculoBuilder().
-				conPlaca(PLACA).
-				conTipo(TIPO_MOTO).
-				conCilindraje(CILINDRAJE);
-				
-		//Act
-		Vehiculo moto = MotoBuilder.build();
+		//Arrange y Act
+		Vehiculo moto = unVehiculo()
+				.conPlaca(PLACA)
+				.conTipo(TIPO_MOTO)
+				.conCilindraje(CILINDRAJE)
+				.build();
 		
 		//Assert
 		assertEquals(PLACA, moto.getPlaca());

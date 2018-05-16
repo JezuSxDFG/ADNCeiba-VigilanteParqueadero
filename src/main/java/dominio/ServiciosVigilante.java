@@ -1,5 +1,10 @@
 package dominio;
 
+import java.util.Calendar;
+
+import dominio.miscelanea.CalendarioParqueadero;
+import dominio.repositorio.RepositorioVehiculo;
+
 public class ServiciosVigilante {
 	
 	public static final int VALOR_HORA_CARRO = 1000;
@@ -9,7 +14,11 @@ public class ServiciosVigilante {
 	
 	public static final String VEHICULO_NO_AUTORIZADO = "NO ESTA AUTORIZADO A INGRESAR";
 	
-	public boolean recibirVehiculo() {
-		return false;
+	public ServiciosVigilante(CalendarioParqueadero calendario) {
+		
+	}
+	
+	public boolean registrarIngreso(Vehiculo vehiculo) {
+		return true;
 	}
 }

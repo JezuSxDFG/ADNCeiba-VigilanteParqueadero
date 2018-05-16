@@ -3,14 +3,14 @@
 
 Consiste en un sistema que simula el comportamiento del vigilante de un parqueadero.
 
-  - El parqueadero ecibe carros y motos
+  - El parqueadero recibe carros y motos
   - Parqueadero con limite
   - El parqueadero funciona 24 horas, los 7 días de la semana
 
 ### Tech
-> La aplicación está construida para la web
-> La interfaz gráfica web es responsive
-> Los servicios REST aceptan muchas peticiones concurrentes por minuto
+> La aplicación está construida para la web.
+> La interfaz gráfica web es responsive.
+> Los servicios REST aceptan muchas peticiones concurrentes por minuto.
 
 
 ### Tarifas
@@ -21,7 +21,7 @@ La tabla de precios es la siguiente:
 | Carro x hora | 1000 |
 | Moto x hora | 500 |
 | Carro x día | 8000 |
-| Moto x día | 8000 |
+| Moto x día | 4000 |
 
 ### Instalación
 
