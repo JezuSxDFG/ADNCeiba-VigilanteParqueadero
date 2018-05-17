@@ -3,31 +3,41 @@ package dominio.unitaria;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static databuilder.VehiculoBuilder.unVehiculo;
-import dominio.ServiciosVigilante;
-import dominio.Vehiculo;
-import dominio.miscelanea.CalendarioParqueadero;
+
+import dominio.modelo.Vehiculo;
+import dominio.repositorio.RepositorioVehiculo;
+import dominio.servicio.ServiciosVigilante;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class ServiciosVigilanteTest {
-
+		
+	@Mock
+	RepositorioVehiculo repositorioVehiculo;
 	
 	@Test
-	public void registrarIngresoTest() {
+	public void registrarIngresoVehiculoTest() {
 		//Arrange
-		Vehiculo carro = unVehiculo().build();
-		CalendarioParqueadero calendario = mock(CalendarioParqueadero.class);
-		when(calendario.esDiaHabil()).thenReturn(true);
-		ServiciosVigilante serviciosVigilante = new ServiciosVigilante(calendario);
-		
+		Vehiculo vehiculo = unVehiculo().conPlaca("ABC123").build();
+		ServiciosVigilante serviciosVigilante = new ServiciosVigilante(repositorioVehiculo);
+		when(serviciosVigilante.contadorVehiculosPorTipo(vehiculo.getTipo())).thenReturn(1L);
+		when(repositorioVehiculo.save(vehiculo)).thenReturn(vehiculo);
 		//Act
-		boolean registroIngresado = serviciosVigilante.registrarIngreso(carro);
+		Vehiculo carroIngresado = serviciosVigilante.registrarIngresoVehiculo(vehiculo);
 		
 		//Assert
-		assertTrue(registroIngresado);
+		assertEquals(vehiculo.getPlaca(),carroIngresado.getPlaca());
 	}
 
 }

@@ -1,7 +1,17 @@
-package dominio;
+package dominio.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+@Entity
 public class Vehiculo {
 	
+	@Id
+	@GeneratedValue
+	private long id;
+	@Size(min=5, max=6)
 	private String placa;
 	private String tipo;
 	private int cilindraje;
@@ -19,29 +29,21 @@ public class Vehiculo {
 		this.tipo = tipo;
 		this.cilindraje = cilindraje;
 	}
+	
+	public long getId() {
+		return id;
+	}
 
 	public String getPlaca() {
 		return placa;
-	}
-
-	public void setPlaca(String placa) {
-		this.placa = placa;
 	}
 
 	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
 	public int getCilindraje() {
 		return cilindraje;
-	}
-
-	public void setCilindraje(int cilindraje) {
-		this.cilindraje = cilindraje;
 	}
 	
 	

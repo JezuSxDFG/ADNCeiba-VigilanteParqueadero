@@ -1,12 +1,16 @@
 package dominio.unitaria;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+import dominio.modelo.Vehiculo;
 import static databuilder.VehiculoBuilder.unVehiculo;
-import dominio.Vehiculo;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class VehiculoTest {
 
 	private static final String PLACA = "ABC123";
@@ -15,33 +19,47 @@ public class VehiculoTest {
 	private static final int CILINDRAJE = 125;
 	
 	@Test
-	public void crearCarroTest() {
+	public void crearVehiculoConPlacaTest() {
 		//Arrange y Act
 		Vehiculo carro = unVehiculo()
 				.conPlaca(PLACA)
-				.conTipo(TIPO_CARRO)
-				.conCilindraje(CILINDRAJE)
 				.build();
 		
 		//Assert
 		assertEquals(PLACA, carro.getPlaca());
-		assertEquals(TIPO_CARRO, carro.getTipo());
-		assertEquals(CILINDRAJE, carro.getCilindraje());
 	}
 	
 	@Test
-	public void crearMotoTest() {
+	public void crearVehiculoTipoCarroTest() {
 		//Arrange y Act
-		Vehiculo moto = unVehiculo()
-				.conPlaca(PLACA)
+		Vehiculo carro = unVehiculo()
+				.conTipo(TIPO_CARRO)
+				.build();
+		
+		//Assert
+		assertEquals(TIPO_CARRO, carro.getTipo());
+	}
+	
+	@Test
+	public void crearVehiculoTipoMotoTest() {
+		//Arrange y Act
+		Vehiculo carro = unVehiculo()
 				.conTipo(TIPO_MOTO)
+				.build();
+		
+		//Assert
+		assertEquals(TIPO_MOTO, carro.getTipo());
+	}
+	
+	@Test
+	public void crearVehiculoConCilindrajeTest() {
+		//Arrange y Act
+		Vehiculo carro = unVehiculo()
 				.conCilindraje(CILINDRAJE)
 				.build();
 		
 		//Assert
-		assertEquals(PLACA, moto.getPlaca());
-		assertEquals(TIPO_MOTO, moto.getTipo());
-		assertEquals(CILINDRAJE, moto.getCilindraje());
+		assertEquals(CILINDRAJE, carro.getCilindraje());
 	}
 
 }
