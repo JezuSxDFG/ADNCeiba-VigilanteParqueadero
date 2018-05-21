@@ -6,7 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import dominio.modelo.Vehiculo;
+import parqueadero.dominio.modelo.Vehiculo;
+
 import static databuilder.VehiculoBuilder.unVehiculo;
 
 @RunWith(SpringRunner.class)

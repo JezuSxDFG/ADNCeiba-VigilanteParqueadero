@@ -1,6 +1,6 @@
 package databuilder;
 
-import dominio.modelo.Vehiculo;
+import parqueadero.dominio.modelo.Vehiculo;
 
 public class VehiculoBuilder {
 

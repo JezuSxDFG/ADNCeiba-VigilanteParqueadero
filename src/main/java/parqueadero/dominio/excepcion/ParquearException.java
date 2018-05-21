@@ -1,4 +1,4 @@
-package dominio.excepcion;
+package parqueadero.dominio.excepcion;
 
 public class ParquearException extends RuntimeException {
 	
