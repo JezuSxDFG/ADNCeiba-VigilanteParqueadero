@@ -8,11 +8,11 @@ import org.springframework.stereotype.Repository;
 import parqueadero.persistencia.entidad.ParqueaderoEntidad;
 
 @Repository
-public interface RepositorioParqueoJPA extends JpaRepository<ParqueaderoEntidad, Long>{
+public interface RepositorioParqueoJPA extends JpaRepository<ParqueaderoEntidad, Long> {
 
 	@Query("SELECT P FROM Parqueadero P WHERE P.vehiculo.placa=:placa")
 	ParqueaderoEntidad buscarVehiculoPorPlaca(@Param("placa") String placa);
-	
+
 	@Query("SELECT count(P) FROM Parqueadero P WHERE P.vehiculo.tipo=:tipo")
 	int contarVehiculosPorTipo(@Param("tipo") String tipo);
 }

@@ -20,10 +20,10 @@ public class ControladorVigilante {
 
 	@Autowired
 	private ServiciosVigilante servicioVigilante;
-    
-    @RequestMapping(value = "/vehiculo", method = RequestMethod.POST)
-   	public ResponseEntity<Parqueo> guardarRegistroIngresoVehiculo(@RequestBody Vehiculo vehiculo) {
+
+	@RequestMapping(value = "/vehiculo", method = RequestMethod.POST)
+	public ResponseEntity<Parqueo> guardarRegistroIngresoVehiculo(@RequestBody Vehiculo vehiculo) {
 		return new ResponseEntity<>(servicioVigilante.registrarIngresoVehiculo(vehiculo), HttpStatus.OK);
-   	}
-	
+	}
+
 }

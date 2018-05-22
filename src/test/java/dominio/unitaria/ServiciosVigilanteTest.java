@@ -24,42 +24,37 @@ import static databuilder.VehiculoBuilder.unVehiculo;
 import static databuilder.ParqueoBuilder.unParqueo;
 import static org.mockito.Mockito.when;
 
+import java.util.Calendar;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = VigilanteParqueaderoApplication.class)
 @DataJpaTest
 public class ServiciosVigilanteTest {
-	
+
 	@InjectMocks
 	private ServiciosVigilante serviciosVigilante;
 	@Mock
 	private RepositorioParqueoPersistente repositorioParqueo;
 	@Mock
 	private Calendario calendario;
-	
-	public static final String LIMITE_DE_VEHICULOS = "EL PARQUEADERO SE ENCUENTRA LLENO";
-	
+
+	public static final String LIMITE_DE_CARROS = "EL CUPO DE CARROS SE ENCUENTRA LLENO";
+	public static final String LIMITE_DE_MOTOS = "EL CUPO DE MOTOS SE ENCUENTRA LLENO";
+
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 	}
-	
+
 	@Test
 	public void registrarIngresoVehiculoTest() {
-		//Arrange
-		Vehiculo vehiculo = unVehiculo().conPlaca("ABC123").build();
-		Parqueo parqueo = unParqueo().build();
-		System.out.println("---/// Creo el vehiculo/// ---");
-		ServiciosVigilante serviciosVigilante = new ServiciosVigilante(repositorioParqueo, calendario);
-		System.out.println("---/// Entro a Servicio Vigilante/// ---");
-		when(serviciosVigilante.hayEspaciosDisponibles(vehiculo.getTipo())).thenReturn(true);
-		when(repositorioParqueo.guardarParqueo(parqueo)).thenReturn(parqueo);
-		//Act
-		Parqueo carroIngresado = serviciosVigilante.registrarIngresoVehiculo(vehiculo);
-		
-		//Assert
-		assertEquals(parqueo.getFechaIngreso(),carroIngresado.getFechaIngreso());
+		// Arrange
+
+		// Act
+
+		// Assert
 	}
-	
+
 	@Test
 	public void noHayEspaciosDisponiblesCarros() {
 		when(repositorioParqueo.contadorParqueosPorTipo("carro")).thenReturn(20);
@@ -67,7 +62,18 @@ public class ServiciosVigilanteTest {
 			serviciosVigilante.hayEspaciosDisponibles("carro");
 			fail();
 		} catch (ParquearException e) {
-			assertEquals(LIMITE_DE_VEHICULOS, e.getMessage());
+			assertEquals(LIMITE_DE_CARROS, e.getMessage());
+		}
+	}
+
+	@Test
+	public void noHayEspaciosDisponiblesMotos() {
+		when(repositorioParqueo.contadorParqueosPorTipo("moto")).thenReturn(20);
+		try {
+			serviciosVigilante.hayEspaciosDisponibles("moto");
+			fail();
+		} catch (ParquearException e) {
+			assertEquals(LIMITE_DE_MOTOS, e.getMessage());
 		}
 	}
 

@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name="Parqueadero")
+@Entity(name = "Parqueadero")
 public class ParqueaderoEntidad {
 
 	@Id
@@ -16,23 +16,28 @@ public class ParqueaderoEntidad {
 	@Embedded
 	private VehiculoEntidad vehiculo;
 	private Date fechaIngreso;
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public VehiculoEntidad getVehiculo() {
 		return vehiculo;
 	}
+
 	public void setVehiculo(VehiculoEntidad vehiculo) {
 		this.vehiculo = vehiculo;
 	}
+
 	public Date getFechaIngreso() {
 		return fechaIngreso;
 	}
+
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
-	}	
+	}
 }

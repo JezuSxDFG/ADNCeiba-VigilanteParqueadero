@@ -10,15 +10,16 @@ import parqueadero.persistencia.builder.ParqueaderoBuilder;
 import parqueadero.persistencia.repositorio.jpa.RepositorioParqueoJPA;
 
 @Repository
-public class RepositorioParqueoPersistente{
-	
+public class RepositorioParqueoPersistente {
+
 	@Autowired
 	private RepositorioParqueoJPA repositorioParqueoJPA;
 
 	public Parqueo guardarParqueo(Parqueo parqueo) {
-		return ParqueaderoBuilder.convertirAParqueo(repositorioParqueoJPA.save(ParqueaderoBuilder.convertirAEntidad(parqueo)));
+		return ParqueaderoBuilder
+				.convertirAParqueo(repositorioParqueoJPA.save(ParqueaderoBuilder.convertirAEntidad(parqueo)));
 	}
-	
+
 	public int contadorParqueosPorTipo(String tipo) {
 		return repositorioParqueoJPA.contarVehiculosPorTipo(tipo);
 	}
