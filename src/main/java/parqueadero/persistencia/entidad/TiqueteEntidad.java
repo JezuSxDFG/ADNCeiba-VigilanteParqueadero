@@ -12,9 +12,9 @@ public class TiqueteEntidad {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String placa;
-	private String tipo;
-	private int cilindraje;
+	private String placaT;
+	private String tipoT;
+	private int cilindrajeT;
 	private Date fechaIngreso;
 	private Date fechaSalida;
 	private int cobro;
@@ -23,28 +23,28 @@ public class TiqueteEntidad {
 		return id;
 	}
 
-	public String getPlaca() {
-		return placa;
+	public String getPlacaT() {
+		return placaT;
 	}
 
-	public void setPlaca(String placa) {
-		this.placa = placa;
+	public void setPlacaT(String placa) {
+		this.placaT = placa;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public String getTipoT() {
+		return tipoT;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipoT(String tipo) {
+		this.tipoT = tipo;
 	}
 
-	public int getCilindraje() {
-		return cilindraje;
+	public int getCilindrajeT() {
+		return cilindrajeT;
 	}
 
-	public void setCilindraje(int cilindraje) {
-		this.cilindraje = cilindraje;
+	public void setCilindrajeT(int cilindraje) {
+		this.cilindrajeT = cilindraje;
 	}
 
 	public Date getFechaIngreso() {
