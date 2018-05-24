@@ -21,10 +21,6 @@ public class ParqueaderoEntidad {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public VehiculoEntidad getVehiculo() {
 		return vehiculo;
 	}

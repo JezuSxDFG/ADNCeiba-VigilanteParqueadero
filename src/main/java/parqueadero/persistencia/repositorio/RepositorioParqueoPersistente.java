@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import parqueadero.dominio.modelo.Parqueo;
 import parqueadero.persistencia.builder.ParqueaderoBuilder;
+import parqueadero.persistencia.entidad.ParqueaderoEntidad;
 import parqueadero.persistencia.repositorio.jpa.RepositorioParqueoJPA;
 
 @Repository
@@ -27,9 +28,17 @@ public class RepositorioParqueoPersistente {
 	public Parqueo obtenerParqueoPorPlaca(String placa) {
 		return ParqueaderoBuilder.convertirAParqueo(repositorioParqueoJPA.buscarVehiculoPorPlaca(placa));
 	}
+	
+	public ParqueaderoEntidad obtenerParqueoEntidadPorPlaca(String placa) {
+		return repositorioParqueoJPA.buscarVehiculoPorPlaca(placa);
+	}
 
 	public List<Parqueo> obtenerTodosParqueados() {
 		return ParqueaderoBuilder.convertirAParqueadero(repositorioParqueoJPA.findAll());
+	}
+	
+	public void retirarParqueo(ParqueaderoEntidad parqueoEntidad) {
+		repositorioParqueoJPA.delete(parqueoEntidad);
 	}
 
 }

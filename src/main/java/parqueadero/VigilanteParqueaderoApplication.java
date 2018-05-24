@@ -22,10 +22,13 @@ public class VigilanteParqueaderoApplication {
 	@Bean
 	public CommandLineRunner configInicial(ServiciosVigilante serviciosVigilante) {
 		return args -> {
-			serviciosVigilante.registrarIngresoVehiculo(new Vehiculo("AAA111", "CARRO", 0));
+			serviciosVigilante.registrarIngresoVehiculo(new Vehiculo("ZAA111", "CARRO", 0));
 			serviciosVigilante.registrarIngresoVehiculo(new Vehiculo("BBB22", "MOTO", 125));
 			serviciosVigilante.registrarIngresoVehiculo(new Vehiculo("CCC333", "CARRO", 780));
 			serviciosVigilante.registrarIngresoVehiculo(new Vehiculo("DDD444", "MOTO", 225));
+			serviciosVigilante.registrarIngresoVehiculo(new Vehiculo("EEE555", "MOTO", 780));
+			serviciosVigilante.registrarIngresoVehiculo(new Vehiculo("FFF666", "MOTO", 500));
+			serviciosVigilante.registrarSalidaVehiculo("BBB22");
 		};
 	}
 

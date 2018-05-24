@@ -17,13 +17,12 @@ public class VigilanteParqueaderoApplicationTests {
 	public void contextLoads() {
 
 	}
-
+	
 	@Test
 	public void test() {
 		VigilanteParqueaderoApplication.main(
-				new String[] { "--spring.main.web-environment=false", "--spring.autoconfigure.exclude=blahblahblah",
+				new String[] { "--spring.main.web-environment=false", "--spring.autoconfigure.exclude=none",
 				// Override any other environment properties according to your needs
 				});
 	}
-
 }
