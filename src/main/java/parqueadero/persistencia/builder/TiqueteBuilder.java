@@ -9,15 +9,15 @@ public class TiqueteBuilder {
 	}
 
 	public static Tiquete convertirADominio(TiqueteEntidad tiqueteEntidad) {
-		return new Tiquete(tiqueteEntidad.getPlaca(), tiqueteEntidad.getTipo(), tiqueteEntidad.getCilindraje(),
+		return new Tiquete(tiqueteEntidad.getPlacaT(), tiqueteEntidad.getTipoT(), tiqueteEntidad.getCilindrajeT(),
 				tiqueteEntidad.getFechaIngreso(), tiqueteEntidad.getFechaSalida(), tiqueteEntidad.getCobro());
 	}
 	
 	public static TiqueteEntidad convertirAEntidad(Tiquete tiquete) {
 		TiqueteEntidad tiqueteEntidad = new TiqueteEntidad();
-		tiqueteEntidad.setPlaca(tiquete.getPlaca());
-		tiqueteEntidad.setTipo(tiquete.getTipo());
-		tiqueteEntidad.setCilindraje(tiquete.getCilindraje());
+		tiqueteEntidad.setPlacaT(tiquete.getPlaca());
+		tiqueteEntidad.setTipoT(tiquete.getTipo());
+		tiqueteEntidad.setCilindrajeT(tiquete.getCilindraje());
 		tiqueteEntidad.setFechaIngreso(tiquete.getFechaIngreso());
 		tiqueteEntidad.setFechaSalida(tiquete.getFechaSalida());
 		tiqueteEntidad.setCobro(tiquete.getCobro());

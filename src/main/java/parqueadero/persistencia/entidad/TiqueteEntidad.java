@@ -27,24 +27,24 @@ public class TiqueteEntidad {
 		return placaT;
 	}
 
-	public void setPlacaT(String placa) {
-		this.placaT = placa;
+	public void setPlacaT(String placaT) {
+		this.placaT = placaT;
 	}
 
 	public String getTipoT() {
 		return tipoT;
 	}
 
-	public void setTipoT(String tipo) {
-		this.tipoT = tipo;
+	public void setTipoT(String tipoT) {
+		this.tipoT = tipoT;
 	}
 
 	public int getCilindrajeT() {
 		return cilindrajeT;
 	}
 
-	public void setCilindrajeT(int cilindraje) {
-		this.cilindrajeT = cilindraje;
+	public void setCilindrajeT(int cilindrajeT) {
+		this.cilindrajeT = cilindrajeT;
 	}
 
 	public Date getFechaIngreso() {
